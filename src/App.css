@@ -84,11 +84,11 @@ input, select {
     width: 100%;
 }
 
-.complete {
+.todo__complete {
     background-color: #5cb85c;
 }
 
-.remove {
+.todo__remove {
     background-color: #d953af;
 }
 
