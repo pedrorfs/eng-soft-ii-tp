@@ -7,13 +7,13 @@ const Todo = ({ todo, removeTodo, completeTodo, color }) => {
             key={todo.id} 
             style={{textDecoration: todo.isCompleted ? "line-through" : "", backgroundColor: `${color}`}}
         >
-            <div className='content'>
+            <div className='todo__content'>
                 <p>{todo.text}</p>
                 <p className="category">{todo.category}</p>
             </div>
             <div>
-                <button className='complete' onClick={() => completeTodo(todo.id)}>Completar</button>
-                <button className='remove' onClick={() => removeTodo(todo.id)}>X</button>
+                <button className='todo__complete' onClick={() => completeTodo(todo.id)}>Completar</button>
+                <button className='todo__remove' onClick={() => removeTodo(todo.id)}>X</button>
             </div>
         </div>
     )
