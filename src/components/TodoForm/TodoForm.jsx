@@ -6,6 +6,17 @@ const TodoForm = ({ addTodo }) => {
     const [category, setCategory] = useState("");
     const [backgroundColor, setBackgroundColor] = useState("");
 
+    const arrayColors = [
+        "#77172E",
+        "#692B17",
+        "#7C4A03",
+        "#264D3B",
+        "#256377"
+    ]
+        
+
+    
+
     const handleMissingCategory = () => {
         alert("Você esqueceu de selecionar a categoria da tarefa!");
     }
@@ -44,7 +55,7 @@ const TodoForm = ({ addTodo }) => {
         setBackgroundColor(color);
     }
     return (
-        <div>
+        <div className='todo-form'>
             <h2>Criar tarefa:</h2>
             <form onSubmit={handleSubmit}>
                 <input
@@ -68,11 +79,11 @@ const TodoForm = ({ addTodo }) => {
                 <div className='colors'>
                     <p className='colors_text'>Cor: </p>
                     <div className='colors_options'>
-                        <button className='color' style={{backgroundColor: "#77172E"}} onClick={(e) => selectBackgroundColor(e, "#77172E")}></button>
-                        <button className='color' style={{backgroundColor: "#692B17"}} onClick={(e) => selectBackgroundColor(e, "#692B17")}></button>
-                        <button className='color' style={{backgroundColor: "#7C4A03"}} onClick={(e) => selectBackgroundColor(e, "#7C4A03")}></button>
-                        <button className='color' style={{backgroundColor: "#264D3B"}} onClick={(e) => selectBackgroundColor(e, "#264D3B")}></button>
-                        <button className='color' style={{backgroundColor: "#256377"}} onClick={(e) => selectBackgroundColor(e, "#256377")}></button>
+                        {
+                            arrayColors.map((item, index) => {
+                                return  <button className='color' key={index} style={{backgroundColor: `${item}`}} onClick={(e) => selectBackgroundColor(e, item)}></button>
+                            })
+                        }
                     </div>
                 </div>
                 <button type='submit'>Criar tarefa</button>
