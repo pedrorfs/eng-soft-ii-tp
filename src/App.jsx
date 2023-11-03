@@ -12,19 +12,22 @@ function App() {
             id: 1,
             text: "Criar funcionalidade no sistema",
             category: "Trabalho",
-            isCompleted: false
+            isCompleted: false,
+            backgroundColor: "#77172E"
         },
         {
             id: 2,
             text: "Ir para a academia",
             category: "Pessoal",
-            isCompleted: false
+            isCompleted: false,
+            backgroundColor: "#77172E"
         },
         {
             id: 3,
             text: "Estudar React",
             category: "Estudo",
-            isCompleted: false
+            isCompleted: false,
+            backgroundColor: "#77172E"
         }
     ])
 
@@ -32,13 +35,15 @@ function App() {
 
     const [filter, setFilter] = useState("All")
     const [sort, setSort] = useState("Asc")
+    
 
-    const addTodo = (text, category) => {
+    const addTodo = (text, category, color) => {
         const newTodos = [...todos, {
             id: Math.floor(Math.random() * 10000),
             text,
             category,
-            isCompleted: false
+            isCompleted: false,
+            backgroundColor: color 
         }];
 
         setTodos(newTodos);
@@ -60,6 +65,8 @@ function App() {
         });
         setTodos(newTodos);
     }
+
+
     return (
         <div className="app">
             <h1>Lista de Tarefas</h1>
@@ -67,7 +74,7 @@ function App() {
             <Filter filter={filter} setFilter={setFilter} setSort={setSort}/>
             <div className='todo-list'>
                 {todos.filter((todo) => filter === "All" ? true : filter === "Completed" ? todo.isCompleted : !todo.isCompleted).filter((todo) => todo.text.toLowerCase().includes(search.toLowerCase())).sort((a, b) => sort === "Asc" ? a.text.localeCompare(b.text) : b.text.localeCompare(a.text) ).map((todo) => (
-                    <Todo todo={todo} key={todo.id} removeTodo={removeTodo} completeTodo={completeTodo} />
+                    <Todo todo={todo} key={todo.id} removeTodo={removeTodo} completeTodo={completeTodo} color={todo.backgroundColor} />
                 ))}
             </div>
             <TodoForm addTodo={addTodo} />

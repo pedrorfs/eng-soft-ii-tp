@@ -1,11 +1,11 @@
-import React from 'react'
+import './todo.css';
 
-const Todo = ({ todo, removeTodo, completeTodo }) => {
+const Todo = ({ todo, removeTodo, completeTodo, color }) => {
     return (
         <div 
             className="todo" 
             key={todo.id} 
-            style={{textDecoration: todo.isCompleted ? "line-through" : ""}}
+            style={{textDecoration: todo.isCompleted ? "line-through" : "", backgroundColor: `${color}`}}
         >
             <div className='content'>
                 <p>{todo.text}</p>
