@@ -91,7 +91,7 @@ const TodoForm = ({ addTodo }) => {
                         }
                     </div>
                 </div>
-                <button type='submit'>Criar tarefa</button>
+                <button data-cy="submit" type='submit'>Criar tarefa</button>
             </form>
         </div>
     )

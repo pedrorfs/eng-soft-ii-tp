@@ -20,7 +20,7 @@ const Filter = ({filter, setFilter, setSort}) => {
                 <div>
                     <p>Ordem alfabética:</p>
                     <button data-cy="asc-button" onClick={() => setSort("Asc")}>Asc</button>
-                    <button onClick={() => setSort("Desc")}>Desc</button>
+                    <button data-cy="desc-button" onClick={() => setSort("Desc")}>Desc</button>
                 </div>
             </div>
         </div>
