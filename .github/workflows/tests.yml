@@ -1,28 +1,28 @@
 name: Tests
 
-  on:
-    push:
-      branches: ["master", "main"]
-    pull_request:
-      branches: ["master", "main"]
+on:
+  push:
+    branches: ["master", "main"]
+  pull_request:
+    branches: ["master", "main"]
 
-  jobs:
-    build:
-      strategy:
-        matrix:
-          os: [ubuntu-latest, macos-latest, windows-latest]
-      
-      runs-on: ${{matrix.os}}
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    
+    runs-on: ${{matrix.os}}
 
-      steps:
-        - uses: actions/checkout@v4
-        - name: Setup Node.js environment
-          uses: actions/setup-node@v4
-          with:
-            node-version: >=21.0.0
-            cache: 'npm'
-        - run: npm install
-        - name: Run unit tests with Cypress
-          run: npm run cy:unit
-        - name: Run e2e tests with Cypress
-          run: npm run cy:e2e
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: >=21.0.0
+          cache: 'npm'
+      - run: npm install
+      - name: Run unit tests with Cypress
+        run: npm run cy:unit
+      - name: Run e2e tests with Cypress
+        run: npm run cy:e2e
