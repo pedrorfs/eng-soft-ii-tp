@@ -24,5 +24,6 @@ jobs:
       - run: npm install
       - name: Run unit tests with Cypress
         run: npm run cy:unit
+      - run: npm run dev
       - name: Run e2e tests with Cypress
         run: npm run cy:e2e
