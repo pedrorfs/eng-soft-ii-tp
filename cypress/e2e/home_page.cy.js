@@ -1,8 +1,7 @@
 describe("Test ToDo Aplication", () => {
     let input = 'Finalizar parte escrita do trabalho';
     beforeEach(() => {
-        cy.visit("/")
-        // cy.visit("http://localhost:5173/")
+        cy.visit('/')
     })
     it("should create a new task", () => {
         cy.get('[data-cy=todo-form-input]').type(input)
